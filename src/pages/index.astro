@@ -1,19 +1,65 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Lightforged Creations – Precision Cosmic Engraving">
+
+  <!-- ================= HEADER ================= -->
+  <header class="cosmic-header">
+    <div class="header-inner">
+      <img src="/assets/anvil-icon.png" class="logo" alt="Lightforged Logo">
+
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/shop">Shop</a>
+        <a href="/contact">Contact</a>
+        <a href="/shop" class="cta">Start an Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Precision Engraving. Cosmic Craft.</h1>
+      <p>Custom laser engraving on metal, wood, acrylic, leather, and more.</p>
+      <a href="/gallery" class="hero-btn">View Gallery</a>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED ================= -->
+  <section class="featured">
+    <h2>Featured Work</h2>
+
+    <div class="gallery-grid">
+      <img src="/assets/featured-card-1.jpg" alt="Engraved aluminum card">
+      <img src="/assets/featured-card-2.jpg" alt="Engraved aluminum card">
+      <img src="/assets/featured-card-3.jpg" alt="Engraved aluminum card">
+    </div>
+  </section>
+
+  <!-- ================= VALUE ================= -->
+  <section class="value">
+    <h2>Why Choose Lightforged?</h2>
+
+    <div class="value-grid">
+      <div>
+        <h3>Cosmic Identity</h3>
+        <p>Your engraving isn’t just a product — it’s forged in light, precision, and creativity.</p>
+      </div>
+
+      <div>
+        <h3>Premium Materials</h3>
+        <p>Aluminum, leather, wood, acrylic — each engraved with crisp detail and durability.</p>
+      </div>
+
+      <div>
+        <h3>Custom Craftsmanship</h3>
+        <p>Every piece is engraved to order with care, accuracy, and artistic intent.</p>
+      </div>
+    </div>
+  </section>
+
 </Layout>

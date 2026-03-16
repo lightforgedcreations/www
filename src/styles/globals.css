@@ -1,78 +1,136 @@
-@import 'tailwindcss';
+/* ===== Cosmic Theme ===== */
 
-@theme {
-    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+:root {
+  --bg-dark: #0b0b0d;
+  --bg-panel: #111116;
+  --gold: #d4a857;
+  --blue: #4aa3ff;
+  --text-light: #e6e6e6;
+  --text-muted: #9a9a9a;
+  --accent-gradient: linear-gradient(90deg, var(--gold), var(--blue));
+  --radius: 8px;
+  --transition: 0.25s ease;
 }
 
-@layer base {
-    h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
-    }
-
-    h2 {
-        @apply text-2xl font-bold sm:text-3xl;
-    }
-
-    a:not(.btn) {
-        @apply underline transition hover:opacity-80;
-    }
-
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
-    }
-
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
-        font-size: 0.9em;
-    }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
 }
 
-@layer components {
-    .markdown {
-        > * {
-            @apply my-6;
-        }
+/* ===== Header ===== */
+.cosmic-header {
+  background: var(--bg-panel);
+  border-bottom: 1px solid #1d1d22;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-        :where(h1, h2) {
-            @apply mt-12 mb-6;
-        }
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        > :first-child {
-            @apply mt-0;
-        }
+.logo {
+  height: 48px;
+}
 
-        > :last-child {
-            @apply mb-0;
-        }
-    }
+nav a {
+  color: var(--text-light);
+  margin-left: 24px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
 
-    .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
+nav a:hover {
+  color: var(--gold);
+}
 
-        &:hover {
-            @apply bg-primary/85;
-        }
+nav .cta {
+  padding: 10px 18px;
+  background: var(--accent-gradient);
+  border-radius: 6px;
+  color: #000;
+  font-weight: 600;
+}
 
-        &:disabled {
-            @apply text-gray-400 bg-gray-700;
-        }
-    }
+nav .cta:hover {
+  opacity: 0.85;
+}
 
-    .btn-lg {
-        --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
-        --btn-py: 1.125rem;
-    }
+/* ===== Hero ===== */
+.hero {
+  height: 70vh;
+  background: url('assets/cosmic-hero.jpg') center/cover no-repeat;
+  background-color: rgba(0,0,0,0.6);
+  background-blend-mode: overlay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius);
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ===== Featured Work ===== */
+section {
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid #222;
+}
+
+/* ===== Value Section ===== */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-muted);
+  border-top: 1px solid #1d1d22;
 }
