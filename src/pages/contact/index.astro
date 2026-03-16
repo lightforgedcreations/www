@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us" description="Get in touch with Lightforged Creations — inquiries, commissions, and collaborations welcome.">
+    <section class="py-8 sm:py-12">
+        <p class="text-gold-300/80 uppercase tracking-[0.3em] text-sm font-medium mb-4">Get in Touch</p>
+        <h1 class="mb-6">
+            <span class="text-gradient-gold">Contact Us</span>
+        </h1>
+        <p class="text-star-white/70 text-lg max-w-2xl mb-12">
+            Have a question, want to commission a piece, or just want to say hello?
+            Fill out the form below and we'll get back to you as soon as we can.
+        </p>
+    </section>
+
+    <section class="max-w-2xl pb-16">
+        <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/contact/success"
+            class="space-y-8"
+        >
+            <!-- Honeypot field for spam protection -->
+            <p class="hidden">
+                <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+            <input type="hidden" name="form-name" value="contact" />
+
+            <div class="grid gap-8 sm:grid-cols-2">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gold-300/80 mb-2">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        class="w-full px-4 py-3 bg-cosmic-700/50 border border-gold-400/15 rounded-lg text-star-white placeholder-star-white/30 focus:outline-none focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-colors"
+                        placeholder="Your name"
+                    />
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gold-300/80 mb-2">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        class="w-full px-4 py-3 bg-cosmic-700/50 border border-gold-400/15 rounded-lg text-star-white placeholder-star-white/30 focus:outline-none focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-colors"
+                        placeholder="your@email.com"
+                    />
+                </div>
+            </div>
+
+            <div>
+                <label for="subject" class="block text-sm font-medium text-gold-300/80 mb-2">Subject</label>
+                <select
+                    id="subject"
+                    name="subject"
+                    required
+                    class="w-full px-4 py-3 bg-cosmic-700/50 border border-gold-400/15 rounded-lg text-star-white focus:outline-none focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-colors"
+                >
+                    <option value="" disabled selected class="text-star-white/30">Select a topic</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="commission">Custom Commission</option>
+                    <option value="purchase">Purchase Inquiry</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message" class="block text-sm font-medium text-gold-300/80 mb-2">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    required
+                    class="w-full px-4 py-3 bg-cosmic-700/50 border border-gold-400/15 rounded-lg text-star-white placeholder-star-white/30 focus:outline-none focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-colors resize-y"
+                    placeholder="Tell us about your inquiry..."
+                ></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg">
+                    Send Message
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-12 cosmic-card bg-cosmic-700/30">
+            <h3 class="text-gold-300 text-lg font-semibold mb-3">Prefer to reach us another way?</h3>
+            <p class="text-star-white/60 text-sm leading-relaxed">
+                We're also active on social media. Follow us for behind-the-scenes looks at our creative
+                process, new piece announcements, and cosmic inspiration. Links coming soon!
+            </p>
+        </div>
+    </section>
+</Layout>

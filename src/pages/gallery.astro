@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const galleryItems = [
+    {
+        title: 'Nebula Ring Collection',
+        description: 'Hand-forged rings with swirling patterns reminiscent of distant nebulae. Each features unique color gradients achieved through specialized heat treatment.',
+        category: 'Jewelry'
+    },
+    {
+        title: 'Solar Flare Pendant',
+        description: 'A bold statement piece capturing the explosive energy of a solar eruption. Gold and copper intertwine in a dynamic, flowing form.',
+        category: 'Jewelry'
+    },
+    {
+        title: 'Constellation Bracelet Series',
+        description: 'Delicate chain bracelets featuring hand-set stones arranged in actual constellation patterns. Choose your star sign or a meaningful sky map.',
+        category: 'Jewelry'
+    },
+    {
+        title: 'The Cosmic Anvil',
+        description: 'Our signature sculpture depicting the mythic forge where stars are born. Crafted from blackened steel with gold-leaf accents.',
+        category: 'Sculpture'
+    },
+    {
+        title: 'Supernova Wall Piece',
+        description: 'A large-format wall sculpture capturing the moment of stellar explosion. Mixed metals create a radiant burst of texture and light.',
+        category: 'Sculpture'
+    },
+    {
+        title: 'Stardust Table Collection',
+        description: 'Functional art pieces — coasters, trivets, and decorative trays embedded with metallic particles that shimmer like distant galaxies.',
+        category: 'Home Decor'
+    },
+    {
+        title: 'Eclipse Earring Set',
+        description: 'Asymmetric drop earrings inspired by solar and lunar eclipses. One captures the corona, the other the shadow — perfectly balanced opposites.',
+        category: 'Jewelry'
+    },
+    {
+        title: 'Orbital Mobile',
+        description: 'A kinetic sculpture for the home, with hand-formed planets and moons that orbit gently in air currents. Each system is unique.',
+        category: 'Sculpture'
+    },
+    {
+        title: 'Meteorite Cufflinks',
+        description: 'Genuine iron meteorite fragments, polished and set into sterling silver. Each pair contains material billions of years old.',
+        category: 'Jewelry'
+    }
+];
+
+const categories = [...new Set(galleryItems.map(item => item.category))];
+---
+
+<Layout title="Gallery" description="Explore our collection of cosmic handcrafted creations — jewelry, sculptures, and custom pieces.">
+    <section class="py-8 sm:py-12">
+        <p class="text-gold-300/80 uppercase tracking-[0.3em] text-sm font-medium mb-4">Our Work</p>
+        <h1 class="mb-6">
+            <span class="text-gradient-gold">Gallery</span>
+        </h1>
+        <p class="text-star-white/70 text-lg max-w-2xl mb-12">
+            Each piece in our collection is handcrafted with care, drawing inspiration from the boundless
+            beauty of the cosmos. Browse our creations below.
+        </p>
+    </section>
+
+    <!-- Category filters -->
+    <section class="mb-12">
+        <div class="flex flex-wrap gap-3">
+            <span class="text-sm text-star-white/50 py-2 mr-2">Categories:</span>
+            {categories.map((category) => (
+                <span class="px-4 py-2 text-sm rounded-full border border-gold-400/20 text-gold-300/80 bg-cosmic-700/30">
+                    {category}
+                </span>
+            ))}
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="pb-12">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryItems.map((item) => (
+                <div class="cosmic-card cosmic-glow group">
+                    <!-- Placeholder visual area -->
+                    <div class="aspect-[4/3] rounded-xl mb-6 bg-gradient-to-br from-cosmic-600/80 to-cosmic-500/40 border border-gold-400/5 flex items-center justify-center overflow-hidden">
+                        <div class="text-center p-4">
+                            <div class="text-3xl mb-2 opacity-40 group-hover:opacity-70 transition-opacity">&#10022;</div>
+                            <span class="text-xs text-star-white/30 uppercase tracking-widest">{item.category}</span>
+                        </div>
+                    </div>
+                    <span class="inline-block text-xs uppercase tracking-wider text-gold-400/60 mb-2">{item.category}</span>
+                    <h3 class="text-gold-300 text-lg font-semibold mb-2">{item.title}</h3>
+                    <p class="text-star-white/50 text-sm leading-relaxed">{item.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="py-8 sm:py-12 text-center">
+        <h2 class="mb-4">
+            <span class="text-gradient-gold">Interested in a Piece?</span>
+        </h2>
+        <p class="text-star-white/70 mb-8 max-w-lg mx-auto">
+            All our pieces are handcrafted and may be available for purchase or commission.
+            Reach out to inquire about availability and pricing.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-lg">Inquire Now</a>
+    </section>
+</Layout>
