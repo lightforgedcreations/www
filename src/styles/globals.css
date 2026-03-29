@@ -2,15 +2,18 @@
 
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-primary: #f67280;
-    --color-primary-content: #101828;
-    --color-complementary: #355c7d;
-    --background-image-noise: linear-gradient(
-            to bottom,
-            color-mix(in oklab, var(--color-gray-950) 0%, transparent),
-            color-mix(in oklab, var(--color-gray-950) 100%, transparent)
-        ),
-        url('/images/noise.png');
+    --color-cosmic-900: #0a0a1a;
+    --color-cosmic-800: #0f0f2e;
+    --color-cosmic-700: #161640;
+    --color-cosmic-600: #1e1e52;
+    --color-cosmic-500: #2a2a6e;
+    --color-gold-400: #f0c040;
+    --color-gold-300: #f5d670;
+    --color-gold-200: #fae8a0;
+    --color-amber-glow: #e8a030;
+    --color-nebula-purple: #7c3aed;
+    --color-nebula-blue: #3b82f6;
+    --color-star-white: #f0f0ff;
 }
 
 @layer base {
@@ -22,57 +25,103 @@
         @apply text-2xl font-bold sm:text-3xl;
     }
 
-    a:not(.btn) {
+    h3 {
+        @apply text-xl font-semibold sm:text-2xl;
+    }
+
+    a:not(.btn):not(.nav-link):not(.logo-link) {
         @apply underline transition hover:opacity-80;
-    }
-
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
-    }
-
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-gray-900 text-primary;
-        font-size: 0.9em;
     }
 }
 
 @layer components {
-    .markdown {
-        > * {
-            @apply my-6;
-        }
-
-        :where(h1, h2) {
-            @apply mt-12 mb-6;
-        }
-
-        > :first-child {
-            @apply mt-0;
-        }
-
-        > :last-child {
-            @apply mb-0;
-        }
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 cursor-pointer text-center font-semibold no-underline transition-all duration-300 rounded-lg;
+        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.5rem);
+        font-size: var(--btn-font-size, 0.875rem);
     }
 
-    .btn {
-        @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-content cursor-pointer text-center font-semibold no-underline transition-colors;
-        padding: var(--btn-py, 0.875rem) var(--btn-px, 1.25rem);
-        font-size: var(--btn-font-size, 0.875rem);
-        border-radius: var(--btn-border-radius, 0.25rem);
+    .btn-primary {
+        @apply text-cosmic-900 bg-gradient-to-r from-gold-400 to-amber-glow shadow-lg;
 
         &:hover {
-            @apply bg-primary/85;
+            @apply shadow-gold-400/30 shadow-xl scale-[1.02];
         }
 
         &:disabled {
-            @apply text-gray-400 bg-gray-700;
+            @apply text-gray-400 bg-gray-700 shadow-none scale-100;
+        }
+    }
+
+    .btn-outline {
+        @apply text-gold-300 border-2 border-gold-400/40 bg-transparent;
+
+        &:hover {
+            @apply border-gold-400 bg-gold-400/10;
         }
     }
 
     .btn-lg {
         --btn-font-size: 1.125rem;
-        --btn-px: 1.5rem;
+        --btn-px: 2rem;
         --btn-py: 1.125rem;
+    }
+
+    .cosmic-card {
+        @apply relative bg-cosmic-700/50 border border-gold-400/10 rounded-2xl p-8 backdrop-blur-sm transition-all duration-300;
+
+        &:hover {
+            @apply border-gold-400/30 shadow-lg shadow-gold-400/5;
+        }
+    }
+
+    .cosmic-glow {
+        @apply relative;
+
+        &::before {
+            content: '';
+            @apply absolute -inset-1 rounded-2xl opacity-0 transition-opacity duration-500;
+            background: linear-gradient(135deg, var(--color-gold-400), var(--color-nebula-purple), var(--color-nebula-blue));
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        &:hover::before {
+            @apply opacity-20;
+        }
+    }
+
+    .section-divider {
+        @apply w-24 h-0.5 mx-auto my-12 bg-gradient-to-r from-transparent via-gold-400/60 to-transparent;
+    }
+
+    .star-field {
+        background-image:
+            radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 60% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+            radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 10% 80%, rgba(240, 192, 64, 0.4) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 90% 10%, rgba(124, 58, 237, 0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 70% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+            radial-gradient(1px 1px at 30% 10%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 85% 65%, rgba(240, 192, 64, 0.3) 0%, transparent 100%);
+    }
+}
+
+@layer utilities {
+    .text-gradient-gold {
+        background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-400), var(--color-amber-glow));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-cosmic {
+        background: linear-gradient(135deg, var(--color-nebula-blue), var(--color-nebula-purple), var(--color-gold-400));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 }

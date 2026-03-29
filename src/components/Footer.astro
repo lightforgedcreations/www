@@ -2,8 +2,15 @@
 
 ---
 
-<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
-    <p class="text-sm">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="decoration-dashed text-primary underline-offset-8"> Astro on Netlify </a>
-    </p>
+<footer class="pt-16 pb-10 sm:pt-24 sm:pb-14 border-t border-gold-400/10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+            <span class="text-sm text-star-white/40">&copy; {new Date().getFullYear()} Lightforged Creations. All rights reserved.</span>
+        </div>
+        <nav class="flex gap-6">
+            <a href="/about" class="nav-link text-sm text-star-white/50 no-underline hover:text-gold-300 transition-colors">About</a>
+            <a href="/gallery" class="nav-link text-sm text-star-white/50 no-underline hover:text-gold-300 transition-colors">Gallery</a>
+            <a href="/contact" class="nav-link text-sm text-star-white/50 no-underline hover:text-gold-300 transition-colors">Contact</a>
+        </nav>
+    </div>
 </footer>

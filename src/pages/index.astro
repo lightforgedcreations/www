@@ -1,19 +1,73 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Home" description="Lightforged Creations — handcrafted cosmic artistry forged with passion and stellar precision.">
+    <!-- Hero Section -->
+    <section class="py-12 sm:py-20 text-center">
+        <p class="text-gold-300/80 uppercase tracking-[0.3em] text-sm font-medium mb-6">Forged Among the Stars</p>
+        <h1 class="text-5xl sm:text-7xl font-bold mb-8 leading-tight">
+            <span class="text-gradient-gold">Cosmic Artistry,</span><br/>
+            <span class="text-star-white">Earthly Craft</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-star-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Unique handcrafted creations inspired by the beauty of the cosmos. Each piece is forged with intention,
+            blending celestial wonder with meticulous craftsmanship.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="/gallery" class="btn btn-primary btn-lg">Explore the Collection</a>
+            <a href="/about" class="btn btn-outline btn-lg">Our Story</a>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Featured Section -->
+    <section class="py-12 sm:py-16">
+        <h2 class="text-center mb-4">
+            <span class="text-gradient-gold">What We Create</span>
+        </h2>
+        <p class="text-center text-star-white/60 mb-12 max-w-xl mx-auto">
+            Every creation tells a story written in stardust and shaped by fire.
+        </p>
+        <div class="grid gap-8 sm:grid-cols-3">
+            <div class="cosmic-card cosmic-glow text-center">
+                <div class="text-4xl mb-4">&#9733;</div>
+                <h3 class="text-gold-300 mb-3 text-lg font-semibold">Stellar Jewelry</h3>
+                <p class="text-star-white/60 text-sm leading-relaxed">
+                    Rings, pendants, and bracelets inspired by constellations and nebulae — each piece a wearable fragment of the cosmos.
+                </p>
+            </div>
+            <div class="cosmic-card cosmic-glow text-center">
+                <div class="text-4xl mb-4">&#9764;</div>
+                <h3 class="text-gold-300 mb-3 text-lg font-semibold">Forged Sculptures</h3>
+                <p class="text-star-white/60 text-sm leading-relaxed">
+                    Metal and mixed-media sculptures that capture the raw power and elegance of celestial bodies and cosmic events.
+                </p>
+            </div>
+            <div class="cosmic-card cosmic-glow text-center">
+                <div class="text-4xl mb-4">&#10047;</div>
+                <h3 class="text-gold-300 mb-3 text-lg font-semibold">Custom Commissions</h3>
+                <p class="text-star-white/60 text-sm leading-relaxed">
+                    Have a vision? We bring your cosmic dreams to life with bespoke pieces crafted to your exact specifications.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CTA Section -->
+    <section class="py-12 sm:py-16 text-center">
+        <div class="cosmic-card max-w-3xl mx-auto bg-gradient-to-br from-cosmic-700/80 to-cosmic-600/40">
+            <h2 class="mb-4">
+                <span class="text-gradient-gold">Ready to Own a Piece of the Cosmos?</span>
+            </h2>
+            <p class="text-star-white/70 mb-8 max-w-lg mx-auto">
+                Whether you're looking for a unique gift or a statement piece for your collection,
+                we'd love to hear from you.
+            </p>
+            <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
+        </div>
+    </section>
 </Layout>
